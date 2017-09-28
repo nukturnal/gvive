@@ -1,8 +1,8 @@
-# Gvive
+# GVIVE Ruby SDK
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/gvive`. To experiment with that code, run `bin/console` for an interactive prompt.
+This gem is a wrapper around GVIVE Identity Verification API offered at https://gvivegh.com/ by Bsystems Limited Ghana. The SDK currently supports Voter ID, Passport & Driver License verifications.
 
-TODO: Delete this and the text above, and describe your gem
+This gem was extracted from a private project I was working on for reuse in other projects, hope it saves u some code time :)
 
 ## Installation
 
@@ -22,7 +22,72 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Environment Variables
+You can simply set `GVIVE_API_KEY` & `GVIVE_USERNAME` environment variables and gem should work flawlessly. You may check your OS documentations on how to set environment variables.
+
+On Mac OS X & Linux Systems you can set these variables in your `~/.profile`
+
+```sh
+export GVIVE_API_KEY=some_api_key
+export GVIVE_USERNAME=some_username
+```
+
+### Initializer Setup (Optional)
+If you do not prefer or want to override the environment variable option you can simply initialize a config setting. If you using Rails you can put this in your `initializers` directory eg `initializers/gvive.rb`
+
+```ruby
+GVIVE.configure do |config|
+  config.api_key = 'some_api_key' # Provided by GVIVE
+  config.username = 'some_username' # Provided by GVIVE
+end
+```
+
+### Voter ID Verification
+You are required to provide the Voter ID number
+
+```ruby
+voter = GVIVE::Identity::Voter.new('6580676543')
+if voter.valid?
+   p voter.data.Fullname
+   p voter.data.PollingStation
+   p voter.data.ResidentialAddress
+  # ...
+ else
+   p voter.data.Message
+ end
+```
+
+### Passport ID Verification
+You are required to provide the Passport ID number
+
+```ruby
+passport = GVIVE::Identity::Passport.new('G00827283')
+if passport.valid?
+   p passport.data.FirstName
+   p passport.data.LastName
+   p passport.data.Gender
+   p passport.data.ExpiryDate
+   # ...
+ else
+   p passport.data.Message
+ end
+```
+
+### Driver License Verification
+You are required to provide the Certificate of Competence Number & the full name as printed exactly on the card.
+
+```ruby
+driver = GVIVE::Identity::Driver.new('COO92930','Alfred Rowe')
+if driver.valid?
+   p driver.data.FirstName
+   p driver.data.LastName
+   p driver.data.Gender
+   p driver.data.ExpiryDate
+   # ...
+ else
+   p driver.data.Message
+ end
+```
 
 ## Development
 
@@ -40,4 +105,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 
 ## Code of Conduct
 
-Everyone interacting in the Gvive project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/gvive/blob/master/CODE_OF_CONDUCT.md).
+Everyone interacting in the Gvive project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/nukturnal/gvive/blob/master/CODE_OF_CONDUCT.md).
