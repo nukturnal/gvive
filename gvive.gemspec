@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Alfred Rowe"]
   spec.email         = ["alfred@encodevlabs.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because RubyGems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = %q{GVIVE Ruby SDK}
+  spec.description   = %q{Identity Theft Protection SDK for GVIVE Web Service}
+  spec.homepage      = "https://github.com/nukturnal/gvive"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
@@ -32,4 +32,5 @@ Gem::Specification.new do |spec|
 
   spec.add_development_dependency "bundler", "~> 1.16.a"
   spec.add_development_dependency "rake", "~> 10.0"
+  spec.add_dependency "http", "~> 2.0"
 end
