@@ -1,3 +1,3 @@
-module Gvive
+module GVIVE
   VERSION = "0.1.0"
 end
