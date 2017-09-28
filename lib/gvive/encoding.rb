@@ -16,9 +16,7 @@ module GVIVE
     # @param [String] method
     def request_concat(url, params={}, method="GET")
       url_build = CGI.escape("#{url}?#{URI.encode_www_form(params)}").downcase
-      result = "#{method.upcase}#{url_build}"
-      p result
-      result
+      "#{method.upcase}#{url_build}"
     end
 
     # GVIVE docs states the digest signature as DIGEST = HMAC-SHA256(REQCONCAT, API KEY)
@@ -27,9 +25,7 @@ module GVIVE
     # @param [String] request_concat
     # @return [Base64]
     def hmac_digest(api_key, request_concat)
-      result = Base64.strict_encode64(OpenSSL::HMAC.digest('sha256', api_key, request_concat))
-      p result
-      result
+      Base64.strict_encode64(OpenSSL::HMAC.digest('sha256', api_key, request_concat))
     end
 
     # Base64 encoding of USERNAME:HMAC-DIGEST
@@ -37,9 +33,7 @@ module GVIVE
     # @param [String] hmac_digest
     # @return [Base64]
     def auth_token(username, hmac_digest)
-      result = Base64.strict_encode64("#{username}:#{hmac_digest}")
-      p result
-      result
+      Base64.strict_encode64("#{username}:#{hmac_digest}")
     end
 
   end
