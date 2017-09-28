@@ -1,5 +1,4 @@
-[![Code Climate](https://codeclimate.com/github/nukturnal/gvive/badges/gpa.svg)](https://codeclimate.com/github/nukturnal/gvive)
-
+[![Code Climate](https://codeclimate.com/github/nukturnal/gvive/badges/gpa.svg)](https://codeclimate.com/github/nukturnal/gvive) [![Build Status](https://travis-ci.org/nukturnal/gvive.svg?branch=master)](https://travis-ci.org/nukturnal/gvive)
 # GVIVE Ruby SDK
 
 This gem is a wrapper around GVIVE Identity Verification API offered at https://gvivegh.com/ by Bsystems Limited Ghana. The SDK currently supports Voter ID, Passport & Driver License verifications.
