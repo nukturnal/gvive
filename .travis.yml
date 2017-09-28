@@ -3,7 +3,6 @@ addons:
     repo_token: fd4f98a0b879612c6384c111a73a31b5be9c63df23fc0a1ffd02f9fadc8c7f24
 after_success:
   - bundle exec codeclimate-test-reporter
-sudo: false
 language: ruby
 rvm:
   - 2.4.0
