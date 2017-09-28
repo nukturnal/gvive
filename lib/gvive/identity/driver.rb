@@ -14,7 +14,7 @@ module GVIVE
 
       # Implementing valid? method signature as described in Identity Class
       def valid?
-        @response = gvive_request(voter_endpoint, { coc: @coc, fname: @fullname })
+        @response = gvive_request(driver_endpoint, { coc: @coc, fname: @fullname })
         @data = @response.to_o
         @response.success?
       end
