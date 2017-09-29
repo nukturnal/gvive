@@ -1,5 +1,3 @@
-require 'cgi'
-
 module GVIVE
   module Identity
     class Driver < GVIVE::Identities
