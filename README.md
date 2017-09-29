@@ -91,6 +91,16 @@ if driver.valid?
  end
 ```
 
+## Testing
+In order to protect valid identity information, all valid IDs have been moved to environment variables. You will need to set them up before tests can pass for valid ID specs.
+
+```sh
+export GVIVE_VALID_VID=VALID_VOTER_ID_NUMBER
+export GVIVE_VALID_PID=VALID_PASSPORT_ID_NUMBER
+export GVIVE_VALID_DCOC=VALID_DRIVER_CERTIFICATE_OF_COMPETENCE_NUMBER
+export GVIVE_VALID_DNAME=⁠⁠⁠⁠⁠"Full name as printed exactly on ID card"
+```
+
 ## Development
 
 After checking out the repo, run `bin/setup` to install dependencies. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
