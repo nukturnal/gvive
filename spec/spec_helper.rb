@@ -35,6 +35,7 @@ RSpec.configure do |config|
     @valid_passport = GVIVE::Identity::Passport.new(@valid_passport_id)
     @invalid_passport = GVIVE::Identity::Passport.new(@invalid_passport_id)
 
+    @valid_driver = GVIVE::Identity::Driver.new(@valid_diver_coc, @valid_diver_fullname)
     @invalid_driver = GVIVE::Identity::Driver.new(@invalid_diver_coc, @invalid_diver_fullname)
 
   end
