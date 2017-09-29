@@ -12,9 +12,9 @@ RSpec.configure do |config|
   end
 
   config.before(:all) do
-    GVIVE.configure do |config|
-      config.api_key = ENV['GVIVE_API_KEY']
-      config.username = ENV['GVIVE_USERNAME']
+    GVIVE.configure do |c|
+      c.api_key = ENV['GVIVE_API_KEY']
+      c.username = ENV['GVIVE_USERNAME']
     end
 
     # Using Environment Variables to hide valid API Keys whiles testing
