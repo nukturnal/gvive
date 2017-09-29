@@ -83,8 +83,8 @@ driver = GVIVE::Identity::Driver.new('COO92930','Alfred Rowe')
 if driver.valid?
    p driver.data.FirstName
    p driver.data.LastName
-   p driver.data.Gender
-   p driver.data.ExpiryDate
+   p driver.data.ClassOfLicence
+   p driver.data.DateOfIssue
    # ...
  else
    p driver.data.Message
