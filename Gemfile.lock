@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    gvive (1.0.0)
+    gvive (1.1.0)
       http (~> 2.0)
 
 GEM

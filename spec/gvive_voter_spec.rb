@@ -8,12 +8,12 @@ RSpec.describe GVIVE::Identity::Voter do
         expect(response).to eql true
       end
 
-      it 'should not have an empty Fullname' do
-        expect(@valid_voter.data.Fullname).not_to be_empty
+      it 'should not have an empty fullname' do
+        expect(@valid_voter.data.fullname).not_to be_empty
       end
 
-      it 'should return a data ResponseCode of 200 when voter is valid' do
-        expect(@valid_voter.data.ResponseCode).to eql "200"
+      it 'should return a data response_code of 200 when voter is valid' do
+        expect(@valid_voter.data.response_code).to eql "200"
       end
     end
 
@@ -23,16 +23,16 @@ RSpec.describe GVIVE::Identity::Voter do
         expect(response).to eql false
       end
 
-      it 'should have an empty Fullname' do
-        expect(@invalid_voter.data.Fullname).to be_nil
+      it 'should have an empty fullname' do
+        expect(@invalid_voter.data.fullname).to be_nil
       end
 
-      it 'should return a data ResponseCode of 201 when voter is invalid' do
-        expect(@invalid_voter.data.ResponseCode).to eql "201"
+      it 'should return a data response_code of 201 when voter is invalid' do
+        expect(@invalid_voter.data.response_code).to eql "201"
       end
 
       it 'should not have an empty Error Message' do
-        expect(@invalid_voter.data.Message).not_to be_empty
+        expect(@invalid_voter.data.message).not_to be_empty
       end
     end
   end

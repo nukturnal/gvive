@@ -8,12 +8,12 @@ RSpec.describe GVIVE::Identity::Driver do
         expect(response).to eql true
       end
 
-      it 'should not have an empty ClassOfLicence' do
-          expect(@valid_driver.data.ClassOfLicence).not_to be_empty
+      it 'should not have an empty class_of_licence' do
+          expect(@valid_driver.data.class_of_licence).not_to be_empty
       end
 
-      it 'should return a data ResponseCode of 200 when voter is valid' do
-        expect(@valid_driver.data.ResponseCode).to eql "200"
+      it 'should return a data response_code of 200 when voter is valid' do
+        expect(@valid_driver.data.response_code).to eql "200"
       end
     end
 
@@ -23,16 +23,16 @@ RSpec.describe GVIVE::Identity::Driver do
         expect(response).to eql false
       end
 
-      it 'should have an empty ClassOfLicence' do
-        expect(@invalid_driver.data.ClassOfLicence).to be_nil
+      it 'should have an empty class_of_licence' do
+        expect(@invalid_driver.data.class_of_licence).to be_nil
       end
 
-      it 'should return a data ResponseCode of 201 when voter is invalid' do
-        expect(@invalid_driver.data.ResponseCode).to eql "201"
+      it 'should return a data response_code of 201 when voter is invalid' do
+        expect(@invalid_driver.data.response_code).to eql "201"
       end
 
       it 'should not have an empty Error Message' do
-        expect(@invalid_driver.data.Message).not_to be_empty
+        expect(@invalid_driver.data.message).not_to be_empty
       end
     end
   end

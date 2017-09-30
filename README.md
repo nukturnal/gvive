@@ -50,12 +50,12 @@ You are required to provide the Voter ID number
 ```ruby
 voter = GVIVE::Identity::Voter.new('6580676543')
 if voter.valid?
-   p voter.data.Fullname
-   p voter.data.PollingStation
-   p voter.data.ResidentialAddress
+   p voter.data.fullname
+   p voter.data.polling_station
+   p voter.data.residential_address
   # ...
  else
-   p voter.data.Message
+   p voter.data.message
  end
 ```
 
@@ -65,13 +65,13 @@ You are required to provide the Passport ID number
 ```ruby
 passport = GVIVE::Identity::Passport.new('G00827283')
 if passport.valid?
-   p passport.data.FirstName
-   p passport.data.LastName
-   p passport.data.Gender
-   p passport.data.ExpiryDate
+   p passport.data.first_name
+   p passport.data.last_name
+   p passport.data.gender
+   p passport.data.expiry_date
    # ...
  else
-   p passport.data.Message
+   p passport.data.message
  end
 ```
 
@@ -81,13 +81,13 @@ You are required to provide the Certificate of Competence Number & the full name
 ```ruby
 driver = GVIVE::Identity::Driver.new('COO92930','Alfred Rowe')
 if driver.valid?
-   p driver.data.FirstName
-   p driver.data.LastName
-   p driver.data.ClassOfLicence
-   p driver.data.DateOfIssue
+   p driver.data.first_name
+   p driver.data.last_name
+   p driver.data.class_of_licence
+   p driver.data.date_of_issue
    # ...
  else
-   p driver.data.Message
+   p driver.data.message
  end
 ```
 
@@ -95,9 +95,9 @@ if driver.valid?
 In order to protect valid identity information, all valid IDs have been moved to environment variables. You will need to set them up before tests can pass for valid ID specs.
 
 ```sh
-export GVIVE_VALID_VID=VALID_VOTER_ID_NUMBER
-export GVIVE_VALID_PID=VALID_PASSPORT_ID_NUMBER
-export GVIVE_VALID_DCOC=VALID_DRIVER_CERTIFICATE_OF_COMPETENCE_NUMBER
+export GVIVE_VALID_VID=VOTER_ID_NUMBER
+export GVIVE_VALID_PID=PASSPORT_ID_NUMBER
+export GVIVE_VALID_DCOC=DRIVER_CERTIFICATE_OF_COMPETENCE_NUMBER
 export GVIVE_VALID_DNAME=⁠⁠⁠⁠⁠"Full name as printed exactly on ID card"
 ```
 
