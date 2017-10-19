@@ -15,6 +15,10 @@ RSpec.describe GVIVE::Identity::Passport do
       it 'should return a data response_code of 200 when voter is valid' do
         expect(@valid_passport.data.response_code).to eql "200"
       end
+
+      it 'should return a nil photo if picture flag is false' do
+        expect(@valid_passport.data.picture).to be_nil
+      end
     end
 
     context 'Invalid Verifications' do

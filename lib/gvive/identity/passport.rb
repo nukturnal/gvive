@@ -16,7 +16,15 @@ module GVIVE
       def valid?
         @response = gvive_request(passport_endpoint, id_params({ pid: @id }))
         @data = @response.to_o
+        check_image_flags
         @response.success?
+      end
+
+      # Artificially remove image blobs if flag is false
+      # This relates to issue logged at https://github.com/nukturnal/gvive/issues/2
+      def check_image_flags
+        @data.signature = nil if @signature == false
+        @data.picture = nil if @photo == false
       end
     end
   end
