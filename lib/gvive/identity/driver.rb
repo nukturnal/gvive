@@ -20,6 +20,8 @@ module GVIVE
       def valid?
         @response = gvive_request(driver_endpoint, id_params({ coc: @id, fname: @fullname}))
         @data = @response.to_o
+        @data.picture = @data.driver_image # Make API uniform
+        @data.signature = @data.driver_signature # Make API Uniform
         @response.success?
       end
     end

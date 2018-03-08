@@ -8,8 +8,21 @@ RSpec.describe GVIVE::Identity::Driver do
         expect(response).to eql true
       end
 
+      it 'valid driver with images should return true when valid? method is called' do
+        response = @valid_driver_with_images.valid?
+        expect(response).to eql true
+      end
+
       it 'should not have an empty class_of_licence' do
           expect(@valid_driver.data.class_of_licence).not_to be_empty
+      end
+
+      it 'should not have an empty picture' do
+          expect(@valid_driver_with_images.data.picture).not_to be_empty
+      end
+
+      it 'should not have an empty signature' do
+          expect(@valid_driver_with_images.data.signature).not_to be_empty
       end
 
       it 'should return a data response_code of 200 when voter is valid' do
